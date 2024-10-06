@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#add-reservation">Add Reservation</a></li>
+            <li><a href="#reservation-list">Reservation List</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="add-reservation">
+            <h1>Add Reservation</h1>
+            <form id="reservationForm">
+                <div class="form-group">
+                    <label for="agentName">Agent Name:</label>
+                    <select id="agentName" required>
+                        <option value="">Select Agent</option>
+                        <option value="Allen Perez">Allen Perez</option>
+                        <option value="Jacqueline Penaroyo">Jacqueline Penaroyo</option>
+                        <option value="Jelohim Gabales">Jelohim Gabales</option>
+                        <option value="Lovely Grace Ruizo">Lovely Grace Ruizo</option>
+                        <option value="Noel Gamalo">Noel Gamalo</option>
+                        <option value="Princess Lyn Mabangis">Princess Lyn Mabangis</option>
+                        <option value="Rex Abella">Rex Abella</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="transactionType">Type of Transaction:</label>
+                    <select id="transactionType" required>
+                        <option value="">Select Type</option>
+                        <option value="Email-ZENDESK">Email</option>
+                        <option value="Inbound">Inbound</option>
+                        <option value="Outbound">Outbound</option>
+                        <option value="Queues">Queues</option>
+                        <option value="Client base">Client base</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="customerInteraction">Customer Interaction Type:</label>
+                    <select id="customerInteraction" required>
+                        <option value="">Select Interaction</option>
+                        <option value="3RD PARTY">3RD PARTY</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Air Quote/Booking">Air Quote/Booking</option>
+                        <option value="Air Cancellation">Air Cancellation</option>
+                        <option value="Air Change -VOL">Air Change -VOL</option>
+                        <option value="Air -Irop/Skchg/invol">Air -Irop/Skchg/invol</option>
+                        <option value="Hotel Quote/Booking">Hotel Quote/Booking</option>
+                        <option value="Hotel Change-VOL">Hotel Change-VOL</option>
+                        <option value="Hotel Cancellation">Hotel Cancellation</option>
+                        <option value="AIR/LAND CHECK IN ISSUES">AIR/LAND CHECK IN ISSUES</option>
+                        <option value="BAGGAGE INQUIRY/ISSUE">BAGGAGE INQUIRY/ISSUE</option>
+                        <option value="COMPLAINTS">COMPLAINTS</option>
+                        <option value="EMERGENCY ISSUES">EMERGENCY ISSUES</option>
+                        <option value="IN DESTINATION EMERGENCY">IN DESTINATION EMERGENCY</option>
+                        <option value="NAME CORRECTIONS">NAME CORRECTIONS</option>
+                        <option value="PRE-DEPARTURE EMERGENCY">PRE-DEPARTURE EMERGENCY</option>
+                        <option value="RECONFIRMATION">RECONFIRMATION</option>
+                        <option value="RELOCATION">RELOCATION</option>
+                        <option value="AIRLINE SCHEDULE CHANGE">AIRLINE SCHEDULE CHANGE</option>
+                        <option value="SEATS">SEATS</option>
+                        <option value="VOLUNTARY CHANGES/CANCELLATION">VOLUNTARY CHANGES/CANCELLATION</option>
+                        <option value="WORKED ON QUEUES">WORKED ON QUEUES</option>
+                        <option value="Client Docs Upload">Client Docs Upload</option>
+                        <option value="Insurance Declined">Insurance Declined</option>
+                        <option value="Create Traveler Profile">Create Traveler Profile</option>
+                        <option value="Client Agreement and CC Authorization">Client Agreement and CC Authorization</option>
+                        <option value="Largay Travel Credit Card Authorization">Largay Travel Credit Card Authorization</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="ticketNumber">Optional Ticket Number:</label>
+                    <input type="text" id="ticketNumber" placeholder="Enter Ticket Number (optional)">
+                </div>
+
+                <div class="form-group">
+                    <label for="routeType">Route Type:</label>
+                    <select id="routeType" required>
+                        <option value="">Select Type</option>
+                        <option value="Domestic">Domestic</option>
+                        <option value="International">International</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="airportCode">Airport Code:</label>
+                    <input type="text" id="airportCode" required placeholder="Enter Airport Code">
+                </div>
+
+                <div class="form-group">
+                    <label for="tagging">Tagging:</label>
+                    <select id="tagging" required>
+                        <option value="">Select Tagging</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Solved">Solved</option>
+                        <option value="Queue Actioned">Queue Actioned</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="icName">IC Name:</label>
+                    <select id="icName" required>
+                        <option value="">Select IC Name</option>
+                        <!-- List of IC Names -->
+                        <option value="Alicia Oberg">Alicia Oberg</option>
+                        <option value="Alyse Bertagnoli">Alyse Bertagnoli</option>
+                        <option value="Amy Rectenwald">Amy Rectenwald</option>
+                        <option value="Angela Caes">Angela Caes</option>
+                        <option value="Anchulee Carranza">Anchulee Carranza</option>
+                        <option value="Ann Dixon">Ann Dixon</option>
+                        <option value="Anna DeAngelis">Anna DeAngelis</option>
+                        <option value="Annie Rogers">Annie Rogers</option>
+                        <option value="Antoinette Macaulay">Antoinette Macaulay</option>
+                        <option value="Ashley Newhaller">Ashley Newhaller</option>
+                        <option value="Barb (Kovacs) Wright">Barb (Kovacs) Wright</option>
+                        <option value="Barbara King">Barbara King</option>
+                        <option value="Becky Sullivan">Becky Sullivan</option>
+                        <option value="Beth Mollo">Beth Mollo</option>
+                        <option value="Betsy Baron">Betsy Baron</option>
+                        <option value="Betsy Bouche">Betsy Bouche</option>
+                        <option value="Bobbi Nappi">Bobbi Nappi</option>
+                        <option value="Brian Watson">Brian Watson</option>
+                        <option value="Brianna Korb">Brianna Korb</option>
+                        <option value="Brigitte Worgaftik">Brigitte Worgaftik</option>
+                        <option value="Bruce Powell">Bruce Powell</option>
+                        <option value="Carissa Gulyas">Carissa Gulyas</option>
+                        <option value="Carol Brant">Carol Brant</option>
+                        <option value="Cathy Marucci">Cathy Marucci</option>
+                        <option value="Charissa Popp">Charissa Popp</option>
+                        <option value="Cintra Rene">Cintra Rene</option>
+                        <option value="Cliff Morgan">Cliff Morgan</option>
+                        <option value="Damien Martin">Damien Martin</option>
+                        <option value="Deb Dockery">Deb Dockery</option>
+                        <option value="Debbie Ames">Debbie Ames</option>
+                        <option value="Debbie Hires">Debbie Hires</option>
+                        <option value="Diane Myers">Diane Myers</option>
+                        <option value="Dottie DeSisto">Dottie DeSisto</option>
+                        <option value="Doug Krumry">Doug Krumry</option>
+                        <option value="Eileen O'Keeffe">Eileen O'Keeffe</option>
+                        <option value="Ellen Goldman">Ellen Goldman</option>
+                        <option value="Ellen Zelman">Ellen Zelman</option>
+                        <option value="Gae Kravit">Gae Kravit</option>
+                        <option value="Gail Rosenberg">Gail Rosenberg</option>
+                        <option value="Grace Cular Yee">Grace Cular Yee</option>
+                        <option value="Gwen Garrett">Gwen Garrett</option>
+                        <option value="Heather Aycock">Heather Aycock</option>
+                        <option value="Heather Hodes">Heather Hodes</option>
+                        <option value="Heather Bahora">Heather Bahora</option>
+                        <option value="Heather Loss">Heather Loss</option>
+                        <option value="Henya Lish-Gebeloff">Henya Lish-Gebeloff</option>
+                        <option value="Holly Hauser">Holly Hauser</option>
+                        <option value="Honey Mistry">Honey Mistry</option>
+                        <option value="Jan Barash">Jan Barash</option>
+                        <option value="Jan Dressler">Jan Dressler</option>
+                        <option value="Jane Mathias">Jane Mathias</option>
+                        <option value="Janet Lewis">Janet Lewis</option>
+                        <option value="Jeanne Derderian">Jeanne Derderian</option>
+                        <option value="Jessi Cook">Jessi Cook</option>
+                        <option value="Jessie Burkhalter">Jessie Burkhalter</option>
+                        <option value="Joanne Kreuscher">Joanne Kreuscher</option>
+                        <option value="Jodi Besket">Jodi Besket</option>
+                        <option value="Jonna Boersma">Jonna Boersma</option>
+                        <option value="Josh King">Josh King</option>
+                        <option value="Joy Cottrill">Joy Cottrill</option>
+                        <option value="Judi Chaitman">Judi Chaitman</option>
+                        <option value="Judy Graper">Judy Graper</option>
+                        <option value="Julie Harris">Julie Harris</option>
+                        <option value="Karen Henderson">Karen Henderson</option>
+                        <option value="Kate Ward">Kate Ward</option>
+                        <option value="Kathryn Schutz">Kathryn Schutz</option>
+                        <option value="Kathi Russ">Kathi Russ</option>
+                        <option value="Kathy Wachter">Kathy Wachter</option>
+                        <option value="Kelly Luf">Kelly Luf</option>
+                        <option value="Kelly Spears">Kelly Spears</option>
+                        <option value="Ken Sause">Ken Sause</option>
+                        <option value="Kris Matela">Kris Matela</option>
+                        <option value="Landa Mauriello-Vernon">Landa Mauriello-Vernon</option>
+                        <option value="Lena Brown">Lena Brown</option>
+                        <option value="Lindsay Ames">Lindsay Ames</option>
+                        <option value="Lisa Leavitt">Lisa Leavitt</option>
+                        <option value="Liz McMahon">Liz McMahon</option>
+                        <option value="Lori Kashgegian">Lori Kashgegian</option>
+                        <option value="Lori Seeley">Lori Seeley</option>
+                        <option value="Lydia Ganz">Lydia Ganz</option>
+                        <option value="Marianne Kochanek">Marianne Kochanek</option>
+                        <option value="Marisol Reinoso">Marisol Reinoso</option>
+                        <option value="Margaret Nichols">Margaret Nichols</option>
+                        <option value="Mary Ann Paternostro">Mary Ann Paternostro</option>
+                        <option value="McCown Griffin">McCown Griffin</option>
+                        <option value="Melanie Richards">Melanie Richards</option>
+                        <option value="Meredith Lutz">Meredith Lutz</option>
+                        <option value="Meredith Schoener">Meredith Schoener</option>
+                        <option value="Michael King">Michael King</option>
+                        <option value="Misty Jones">Misty Jones</option>
+                        <option value="Myra Fischel">Myra Fischel</option>
+                        <option value="Myrna Arroyo">Myrna Arroyo</option>
+                        <option value="Nancy Borzino">Nancy Borzino</option>
+                        <option value="Neil DiBiase">Neil DiBiase</option>
+                        <option value="Pam Wittmann">Pam Wittmann</option>
+                        <option value="Patricia Stone">Patricia Stone</option>
+                        <option value="Patty Krumrey">Patty Krumrey</option>
+                        <option value="Paula Jaye">Paula Jaye</option>
+                        <option value="Rich Korb">Rich Korb</option>
+                        <option value="Sarah Johnson">Sarah Johnson</option>
+                        <option value="Shari Shocket">Shari Shocket</option>
+                        <option value="Sharon Johnson">Sharon Johnson</option>
+                        <option value="Sharon Wessan">Sharon Wessan</option>
+                        <option value="Sheila Eifert">Sheila Eifert</option>
+                        <option value="Shelly Lynch">Shelly Lynch</option>
+                        <option value="Sherri Guglielmi">Sherri Guglielmi</option>
+                        <option value="Shonda Merrick">Shonda Merrick</option>
+                        <option value="Stefany Ceccato">Stefany Ceccato</option>
+                        <option value="Stephanie Reiner">Stephanie Reiner</option>
+                        <option value="Steve Jermanok">Steve Jermanok</option>
+                        <option value="Susan Fertitta">Susan Fertitta</option>
+                        <option value="Susan Moynihan">Susan Moynihan</option>
+                        <option value="Suzanne Aresco">Suzanne Aresco</option>
+                        <option value="Tammy Jones-Deem">Tammy Jones-Deem</option>
+                        <option value="Tina Posila">Tina Posila</option>
+                        <option value="Tracy Awe">Tracy Awe</option>
+                        <option value="Tyler Morton">Tyler Morton</option>
+                        <option value="Trisha Iannazzi">Trisha Iannazzi</option>
+                        <option value="Vicki Aubert">Vicki Aubert</option>
+                        <option value="Vicky Malakoff">Vicky Malakoff</option>
+                        <option value="Vivian Leonard">Vivian Leonard</option>
+                        <option value="Andre Koester">Andre Koester</option>
+                        <option value="Ann Becker">Ann Becker</option>
+                        <option value="Diane Colaizzi">Diane Colaizzi</option>
+                        <option value="Geoffrey Ravoire">Geoffrey Ravoire</option>
+                        <option value="Lauren Kroger">Lauren Kroger</option>
+                        <option value="Linda Spears">Linda Spears</option>
+                        <option value="Megan Grossman">Megan Grossman</option>
+                        <option value="Monique Owen">Monique Owen</option>
+                        <option value="Lizzie Semmer">Lizzie Semmer</option>
+                        <option value="Lindsay Becker">Lindsay Becker</option>
+                        <option value="Samantha Lanna">Samantha Lanna</option>
+                        <option value="Maggie Oconnor">Maggie Oconnor</option>
+                        <option value="Alicia Falcone">Alicia Falcone</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="pnr">PNR:</label>
+                    <input type="text" id="pnr" placeholder="Enter PNR">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" rows="3" placeholder="Enter description"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="urgency">Urgency:</label>
+                    <select id="urgency" required>
+                        <option value="">Select Urgency</option>
+                        <option value="urgent">Urgent</option>
+                        <option value="not_urgent">Not Urgent</option>
+                    </select>
+                </div>
+
+                <button type="submit">Add Reservation</button>
+            </form>
+            <button id="clearAllButton">Clear All Reservations</button>
+            <button id="undoClearButton" style="display:none;">Undo Clear</button>
+            <button id="copyButton">Copy to Excel</button>
+        </section>
+
+        <section id="reservation-list">
+            <h1>Reservations</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Agent Name</th>
+                        <th>IC Name</th>
+                        <th>Client Name</th>
+                        <th>Transaction Type</th>
+                        <th>Ticket Number</th>
+                        <th>PNR</th>
+                        <th>Customer Interaction</th>
+                        <th>Urgency</th>
+                        <th>Route Type</th>
+                        <th>Airport Code</th>
+                        <th>Tagging</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody id="reservationTableBody"></tbody>
+            </table>
+        </section>
+    </div>
+
+<button id="undoLastActionButton" style="display:none;">Undo Last Action</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
