@@ -114,11 +114,11 @@ button:hover {
 }
 
 button.delete-button {
-    background-color: #d32f2f;
+    background-color: #004d40;
 }
 
 button.delete-button:hover {
-    background-color: #d32f2f;
+    background-color: #004d40;
 }
 
 .actions {
