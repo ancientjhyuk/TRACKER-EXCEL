@@ -166,3 +166,19 @@ document.getElementById('clearAllButton').addEventListener('click', function() {
     
     alert('All reservations have been cleared.');
 });
+// Load and render reservations on page load
+window.onload = function() {
+    loadFromLocalStorage();
+    renderReservations();
+};
+
+// Clear all reservations functionality
+document.getElementById('clearAllButton').addEventListener('click', function() {
+    // Clear reservations from local storage
+    localStorage.removeItem('reservations');
+
+    // Clear the displayed table
+    const tableBody = document.getElementById('reservationTableBody');
+    tableBody.innerHTML = '';
+
+    alert('All reservations have been cleared.');
