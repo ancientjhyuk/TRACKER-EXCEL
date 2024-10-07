@@ -115,6 +115,18 @@ document.getElementById('reservationForm').addEventListener('submit', function(e
     localStorage.removeItem('reservationFormData');
 });
 
+// Clear all reservations functionality
+document.getElementById('clearAllButton').addEventListener('click', function() {
+    // Clear reservations from local storage
+    localStorage.removeItem('reservations');
+
+    // Clear the displayed table
+    const tableBody = document.getElementById('reservationTableBody');
+    tableBody.innerHTML = '';
+
+    alert('All reservations have been cleared.');
+});
+
 // Event delegation for delete buttons
 document.getElementById('reservationTableBody').addEventListener('click', function(event) {
     if (event.target.classList.contains('deleteButton')) {
