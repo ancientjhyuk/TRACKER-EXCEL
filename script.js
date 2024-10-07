@@ -156,3 +156,13 @@ function copyTableToExcel() {
 
 // Add event listener for the "Copy to Excel" button
 document.getElementById('copyButton').addEventListener('click', copyTableToExcel);
+document.getElementById('clearAllButton').addEventListener('click', function() {
+    // Clear reservations from local storage
+    localStorage.removeItem('reservations');
+    
+    // Clear the displayed table
+    const tableBody = document.getElementById('reservationTableBody');
+    tableBody.innerHTML = '';
+    
+    alert('All reservations have been cleared.');
+});
