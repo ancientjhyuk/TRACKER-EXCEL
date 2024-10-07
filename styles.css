@@ -100,25 +100,31 @@ tr:nth-child(even) {
     background-color: #e0f2f1;
 }
 
+/* General button styles */
 button {
     padding: 10px;
-    background-color: #d32f2f;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #004d40;
+/* Specific style for the Clear All Reservations button */
+#clearAllButton {
+    background-color: #d32f2f; /* Red background */
 }
 
-button.delete-button {
-    background-color: #004d40;
+#clearAllButton:hover {
+    background-color: #b71c1c; /* Darker red on hover */
 }
 
-button.delete-button:hover {
-    background-color: #d32f2f;
+/* Specific style for other buttons */
+button:not(#clearAllButton) {
+    background-color: #2196F3; /* Blue background for other buttons */
+}
+
+button:not(#clearAllButton):hover {
+    background-color: #1976D2; /* Darker blue on hover */
 }
 
 .actions {
