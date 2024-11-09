@@ -1,3 +1,5 @@
+let previousReservations = []; // To store previous state before clearing
+
 // Function to save reservations to local storage
 function saveReservationsToLocalStorage(reservations) {
     localStorage.setItem('reservations', JSON.stringify(reservations));
@@ -38,54 +40,10 @@ function renderReservations() {
     });
 }
 
-// Load and render reservations on page load
-window.onload = function() {
-    loadFromLocalStorage();
-    renderReservations();
-};
-
-// Function to save form data to local storage
-function saveToLocalStorage() {
-    const formData = {
-        agentName: document.getElementById('agentName').value,
-        transactionType: document.getElementById('transactionType').value,
-        customerInteraction: document.getElementById('customerInteraction').value,
-        ticketNumber: document.getElementById('ticketNumber').value,
-        routeType: document.getElementById('routeType').value,
-        airportCode: document.getElementById('airportCode').value,
-        tagging: document.getElementById('tagging').value,
-        icName: document.getElementById('icName').value,
-        pnr: document.getElementById('pnr').value,
-        description: document.getElementById('description').value,
-        urgency: document.getElementById('urgency').value
-    };
-
-    localStorage.setItem('reservationFormData', JSON.stringify(formData));
-}
-
-// Load data into form
-function loadFromLocalStorage() {
-    const savedData = JSON.parse(localStorage.getItem('reservationFormData'));
-    if (savedData) {
-        for (const key in savedData) {
-            const input = document.getElementById(key);
-            if (input) {
-                input.value = savedData[key];
-            }
-        }
-    }
-}
-
-// Event listener to save data on input change
-const formElements = document.querySelectorAll('#reservationForm input, #reservationForm select, #reservationForm textarea');
-formElements.forEach(element => {
-    element.addEventListener('input', saveToLocalStorage);
-});
-
-// Handle form submission
+// Handle form submission for new reservation
 document.getElementById('reservationForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    
+
     const reservation = {
         date: new Date().toLocaleDateString(),
         timestamp: new Date().toLocaleTimeString(),
@@ -106,7 +64,7 @@ document.getElementById('reservationForm').addEventListener('submit', function(e
     const reservations = loadReservationsFromLocalStorage();
     reservations.push(reservation);
     saveReservationsToLocalStorage(reservations);
-    
+
     // Render the updated reservation table
     renderReservations();
 
@@ -117,6 +75,9 @@ document.getElementById('reservationForm').addEventListener('submit', function(e
 
 // Clear all reservations functionality
 document.getElementById('clearAllButton').addEventListener('click', function() {
+    // Save the current state of reservations before clearing
+    previousReservations = loadReservationsFromLocalStorage();
+
     // Clear reservations from local storage
     localStorage.removeItem('reservations');
 
@@ -124,7 +85,22 @@ document.getElementById('clearAllButton').addEventListener('click', function() {
     const tableBody = document.getElementById('reservationTableBody');
     tableBody.innerHTML = '';
 
+    // Show Undo button after clearing reservations
+    document.getElementById('undoLastActionButton').style.display = 'inline-block';
+
     alert('All reservations have been cleared.');
+});
+
+// Undo last action (restore deleted reservations)
+document.getElementById('undoLastActionButton').addEventListener('click', function() {
+    // Restore the previous reservations from the backup
+    saveReservationsToLocalStorage(previousReservations);
+
+    // Render the restored reservation table
+    renderReservations();
+
+    // Hide the Undo button after undoing
+    document.getElementById('undoLastActionButton').style.display = 'none';
 });
 
 // Event delegation for delete buttons
@@ -132,7 +108,10 @@ document.getElementById('reservationTableBody').addEventListener('click', functi
     if (event.target.classList.contains('deleteButton')) {
         const row = event.target.parentElement.parentElement;
         const index = Array.from(row.parentNode.children).indexOf(row);
-        
+
+        // Save the previous reservations before removing the selected one (for undo functionality)
+        previousReservations = loadReservationsFromLocalStorage();
+
         // Remove the reservation from storage
         const reservations = loadReservationsFromLocalStorage();
         reservations.splice(index, 1);
@@ -140,6 +119,9 @@ document.getElementById('reservationTableBody').addEventListener('click', functi
 
         // Remove the row from the table
         row.remove();
+
+        // Show the Undo button after a delete action
+        document.getElementById('undoLastActionButton').style.display = 'inline-block';
     }
 });
 
@@ -168,3 +150,8 @@ function copyTableToExcel() {
 
 // Add event listener for the "Copy to Excel" button
 document.getElementById('copyButton').addEventListener('click', copyTableToExcel);
+
+// Load and render reservations on page load
+window.onload = function() {
+    renderReservations();
+};
